@@ -864,32 +864,21 @@ const clientSideHandlers = {
       throw new Error("jsPDF library not loaded.");
     }
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    
+    // Load first image to set initial document format
+    const firstImg = await loadImage(files[0]);
+    const doc = new jsPDF({
+      orientation: firstImg.width > firstImg.height ? 'l' : 'p',
+      unit: 'px',
+      format: [firstImg.width, firstImg.height]
+    });
     
     for (let i = 0; i < files.length; i++) {
-      if (i > 0) {
-        doc.addPage();
-      }
       const file = files[i];
       const img = await loadImage(file);
       
-      const pdfWidth = doc.internal.pageSize.getWidth();
-      const pdfHeight = doc.internal.pageSize.getHeight();
-      
-      let imgWidth = img.width;
-      let imgHeight = img.height;
-      const ratio = imgWidth / imgHeight;
-      
-      const maxWidth = pdfWidth - 20;
-      const maxHeight = pdfHeight - 20;
-      
-      if (imgWidth > maxWidth) {
-        imgWidth = maxWidth;
-        imgHeight = imgWidth / ratio;
-      }
-      if (imgHeight > maxHeight) {
-        imgHeight = maxHeight;
-        imgWidth = imgHeight * ratio;
+      if (i > 0) {
+        doc.addPage([img.width, img.height], img.width > img.height ? 'l' : 'p');
       }
       
       const canvas = document.createElement('canvas');
@@ -899,9 +888,8 @@ const clientSideHandlers = {
       ctx.drawImage(img, 0, 0);
       const imgData = canvas.toDataURL('image/jpeg', 0.95);
       
-      const x = (pdfWidth - imgWidth) / 2;
-      const y = (pdfHeight - imgHeight) / 2;
-      doc.addImage(imgData, 'JPEG', x, y, imgWidth, imgHeight);
+      // Draw image to fill the page exactly (no margins, no scaling artifacts)
+      doc.addImage(imgData, 'JPEG', 0, 0, img.width, img.height);
     }
     
     const pdfBlob = doc.output('blob');
