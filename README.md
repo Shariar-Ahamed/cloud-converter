@@ -2,8 +2,7 @@
 
 A premium, client-side, all-in-one file converter SaaS dashboard built for speed, security, and visual excellence. Convert documents, images, audio, and videos instantly inside your browser sandbox.
 
-🔗 **Live Application URL**: [https://all-file-cloud-converter.vercel.app/](https://all-file-cloud-converter.vercel.app/)  
-💻 **GitHub Repository**: [https://github.com/Shariar-Ahamed/cloud-converter](https://github.com/Shariar-Ahamed/cloud-converter)
+💻 **Live Application URL**: [Live View](https://cloud-converter.vercel.app/)  
 
 ---
 
