@@ -17,7 +17,7 @@ import { tools, getToolById, toPdfFormats } from './data/tools.js';
 const state = {
   route: 'landing',
   routeParams: null,
-  theme: localStorage.getItem('theme') || 'dark',
+  theme: 'dark',
   user: JSON.parse(localStorage.getItem('user')) || null,
   history: JSON.parse(localStorage.getItem('history')) || [],
   isSidebarOpen: false,
@@ -30,11 +30,10 @@ const state = {
 };
 
 // Apply theme at startup
-document.documentElement.className = state.theme;
+document.documentElement.className = 'dark';
 
 // Save state changes
 function saveState() {
-  localStorage.setItem('theme', state.theme);
   localStorage.setItem('user', JSON.stringify(state.user));
   localStorage.setItem('history', JSON.stringify(state.history));
 }

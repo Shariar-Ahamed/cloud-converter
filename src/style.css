@@ -44,33 +44,18 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Light / Dark Variables */
-.dark {
-  --bg-primary: #050212;
-  --bg-secondary: rgba(13, 10, 28, 0.8);
-  --bg-tertiary: rgba(22, 18, 48, 0.9);
+/* Dark variables applied globally */
+:root, .dark {
+  --bg-primary: #07031a;            /* Deep night-purple background */
+  --bg-secondary: rgba(13, 8, 36, 0.85);
+  --bg-tertiary: rgba(22, 14, 58, 0.9);
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --border-color: rgba(139, 92, 246, 0.15);
-  --border-hover: rgba(139, 92, 246, 0.4);
-  --glass-bg: rgba(10, 8, 22, 0.65);
-  --glass-shadow: rgba(0, 0, 0, 0.5);
-  --glow-shadow: 0 0 30px rgba(139, 92, 246, 0.25);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.light {
-  --bg-primary: #f8fafc;
-  --bg-secondary: rgba(255, 255, 255, 0.8);
-  --bg-tertiary: rgba(241, 245, 249, 0.9);
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --border-color: rgba(139, 92, 246, 0.15);
-  --border-hover: rgba(139, 92, 246, 0.35);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-shadow: rgba(15, 23, 42, 0.05);
-  --glow-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+  --border-color: rgba(139, 92, 246, 0.18);
+  --border-hover: rgba(139, 92, 246, 0.45);
+  --glass-bg: rgba(10, 6, 28, 0.7);
+  --glass-shadow: rgba(0, 0, 0, 0.6);
+  --glow-shadow: 0 0 35px rgba(139, 92, 246, 0.3);
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
@@ -162,37 +147,33 @@ body {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.12;
+  filter: blur(140px);
+  opacity: 0.18;             /* Increased opacity for richer, glowing dark purple vibes */
   transition: opacity 0.5s ease;
-}
-.light .blob {
-  opacity: 0.07;
-  filter: blur(100px);
 }
 
 .blob-purple {
   background: #8b5cf6;
-  width: 600px;
-  height: 600px;
-  top: -200px;
-  left: -200px;
+  width: 800px;              /* Expanded size */
+  height: 800px;
+  top: -250px;
+  left: -250px;
 }
 
 .blob-cyan {
   background: #06b6d4;
-  width: 500px;
-  height: 500px;
-  bottom: -100px;
-  right: -100px;
+  width: 700px;
+  height: 700px;
+  bottom: -150px;
+  right: -150px;
 }
 
 .blob-pink {
   background: #ec4899;
-  width: 450px;
-  height: 450px;
-  top: 40%;
-  left: 60%;
+  width: 650px;
+  height: 650px;
+  top: 35%;
+  left: 55%;
 }
 
 /* Animations */
