@@ -7,7 +7,8 @@
   --color-accent-cyan: #06b6d4;   /* Cyan */
   --color-accent-pink: #ec4899;   /* Pink */
   
-  --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
   
   --animate-float-slow: float 8s ease-in-out infinite;
   --animate-float-medium: float 5s ease-in-out infinite;
